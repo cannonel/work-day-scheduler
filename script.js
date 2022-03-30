@@ -31,15 +31,25 @@ var showHourBlocks = function() {
         taskRow.id = timeBlocks.indexOf(timeBlocks[i]);
 
         //creating hour of day slots
-        var timeSlot = document.createElement("h4")
+        var timeSlot = document.createElement("h4");
         timeSlot.classList = "hour";
         timeSlot.id = timeBlocks.indexOf(timeBlocks[i]);
         timeSlot.textContent = timeBlocks[i];
+
+        //append time to time slot
+        taskRow.appendChild(timeSlot)
         
-        //create task text input area
+        //create task text input field
+        var taskInput = document.createElement("input");
+        taskInput.classList = "time-block clearable";
+        taskInput.id = "input" + timeBlocks.indexOf(timeBlocks[i]);
+
+        //check local storage in an 'if' statement
 
 
-        //appending dynamically created elements to main content container
+        //appending task text input to correct row
+        taskRow.appendChild(taskInput);
+        //appending dynamically created row element to main content container
         contentContainer.appendChild(taskRow);
     }
 
