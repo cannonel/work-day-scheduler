@@ -32,7 +32,7 @@ var showHourBlocks = function() {
 
         //creating hour of day slots
         var timeSlot = document.createElement("h4");
-        timeSlot.classList = "hour";
+        timeSlot.classList = "col-md-2 hour";
         timeSlot.id = timeBlocks.indexOf(timeBlocks[i]);
         timeSlot.textContent = timeBlocks[i];
 
@@ -41,14 +41,23 @@ var showHourBlocks = function() {
         
         //create task text input field
         var taskInput = document.createElement("input");
-        taskInput.classList = "time-block clearable";
+        taskInput.classList = "time-block clearable col-md-9 description p-0";
         taskInput.id = "input" + timeBlocks.indexOf(timeBlocks[i]);
 
         //check local storage in an 'if' statement
 
-
         //appending task text input to correct row
         taskRow.appendChild(taskInput);
+
+        //save button
+        var saveBtn = document.createElement("button");
+        saveBtn.classList = "saveBtn col-md-1";
+        saveBtn.id = "btn" + timeBlocks.indexOf(timeBlocks[i]);
+        saveBtn.innerHTML = "<i class='far fa-save fa-lg'></i>";
+
+        //append save button to row
+        taskRow.appendChild(saveBtn);
+
         //appending dynamically created row element to main content container
         contentContainer.appendChild(taskRow);
     }
